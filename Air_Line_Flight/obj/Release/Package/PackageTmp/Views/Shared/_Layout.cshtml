@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Air_Line Flight </title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body style="background-color:burlywood">
+    <div class="navbar navbar-inverse navbar-fixed-top" style="color:aliceblue" >
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                
+
+                <img src=" ~/Content/images/Home icon.jpg" />
+                 @Html.ActionLink("Air_Line", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("🏡Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("About Us", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+
+                    @{if (User.Identity.Name == "siyandambovu@gmail.com")
+                        {
+                            <li>@Html.ActionLink("Admin Dashboard", "AdminListUsers", "Admin")</li>
+
+                            @*<li class='has-sub'>
+                                <a href='#'><span>Admin Dashboard</span></a>
+                                <ul class="nav navbar-nav">
+                                    <li>@Html.ActionLink("Update Jobs", "Index2", "JobAds")</li>
+                                    <li>@Html.ActionLink("View Applicants", "Index", "Contents")</li>
+                                    <li>@Html.ActionLink("Send emails", "Index", "SendEmail")</li>
+
+                                </ul>
+                            </li>*@
+                        }
+                    }
+
+                    @{
+                        if (User.Identity.Name != "siyandambovu@gmail.com" && User.Identity.Name != "")
+                        {
+                            <li>@Html.ActionLink("Booking", "ListOfBookings", "Flight")</li>
+
+                            @*<li class='has-sub'>
+                                <a href='#'><span>User Options</span></a>
+                                <ul>
+                                    <li>@Html.ActionLink("Update Jobs", "Index2", "JobAds")</li>
+                                    <li>@Html.ActionLink("View Applicants", "Index", "Contents")</li>
+                                    <li>@Html.ActionLink("Promo Request", "Index", "Clients")</li>
+                                    <li>@Html.ActionLink("Send emails", "Index", "SendEmail")</li>
+
+                                    <li class='has-sub'>
+                                        <a href='#'><span>History</span></a>
+                                        <ul>
+                                            <li>@Html.ActionLink("Clients Files", "Index", "ClientHistories")</li>
+                                            <li>@Html.ActionLink("Employee Files", "Index", "EmployeeHistories")</li>
+
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>*@
+                        }
+                    }
+
+                </ul>
+
+
+
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer style="text-align:center">
+
+            <a href="http://www.facebook.com">
+                <img style="width:50px;height:50px;" src="~/Content/images/fb.png" />
+            </a>
+            <a href="http://www.twitter.com">
+                <img style="width:50px;height:50px;" src="~/Content/images/tw.png" />
+            </a>
+
+            <p>&copy; @DateTime.Now.Year - Air_Line_Flight</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

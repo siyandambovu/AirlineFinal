@@ -1,0 +1,12 @@
+Student Number		Surname&Initials	Group
+
+21528292		Makhaye SS		D
+
+21539288		Polela AL		D
+
+21547557                Ngubane S               E
+
+21535899                Hlatshwayo TM           D
+
+21523998                Mkhulise S              D
+

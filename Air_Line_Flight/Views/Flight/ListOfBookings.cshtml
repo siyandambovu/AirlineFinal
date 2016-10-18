@@ -1,0 +1,89 @@
+﻿@model IEnumerable<Air_Line_Flight.Models.Flight>
+
+@{
+    ViewBag.Title = "ListOfBookings";
+}
+
+<h2>ListOfBookings</h2>
+
+<p>
+    @Html.ActionLink("New Flight", "flight")
+</p>
+<p>
+
+
+</p>
+@using (Html.BeginForm("ListOfBookings", "flight", FormMethod.Post))
+{
+    <input type="submit" value="search" class="btn btn-default" />
+    @Html.TextBox("s")
+}
+<p>
+
+
+</p>
+<div style="text-align:center">
+    @Html.ActionLink("My Booking(s)", "ListOfBookings")
+</div>
+<p>
+
+
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Date1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Source)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dest)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Number)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Adults)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Child)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Source)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Dest)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Number)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Adults)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Child)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.flightID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.flightID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.flightID })
+        </td>
+    </tr>
+}
+
+</table>

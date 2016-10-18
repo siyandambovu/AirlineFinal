@@ -1,0 +1,66 @@
+﻿<br />
+<br />
+
+<body>
+
+    <section id="content" class="content-subpages">
+
+
+        <div>
+            <div class="col-md-12">
+                <div class="col-md-12">
+
+
+                    <h2>Feedback</h2>
+                    
+                    <form id="form" method="post" action="#">
+                    @using (Html.BeginForm("Contact", "Contacts", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <fieldset>
+                            <label >
+                                <strong>Subject:</strong>
+                                <input type="text" value="" name="subject">
+                            </label>
+                            <br />
+                            <br />
+                            <label>
+                                <strong>Email:</strong>
+                                <input type="text" value="" name="email">
+                            </label>
+                            <br />
+                            <br />
+                            <label>
+                                <strong>Message:</strong>
+                                <textarea row="5" cols="20" name="message"></textarea>
+                            </label>
+                            <br />
+                            @*<div class="btns"><a href="~/#" class="link">Clear</a><a href="~/#" class="link">Send</a></div>*@
+                            <button type="submit" id="submit" class="btn-group">Send</button>
+                        </fieldset>
+                        }
+                    </form>
+                </div>
+                <div class="col-2">
+                    <h2 class="p2">Office Times</h2>
+                    <p>
+                        Monday - Friday: 7:30 am - 18:00<br>
+                        Saturday: 7:30 am - 13:00<br>
+                        
+                    </p>
+                    <div class="map">
+                        <iframe src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Brooklyn,+New+York,+NY,+United+States&amp;aq=0&amp;sll=37.0625,-95.677068&amp;sspn=61.282355,146.513672&amp;ie=UTF8&amp;hq=&amp;hnear=Brooklyn,+Kings,+New+York&amp;ll=40.649974,-73.950005&amp;spn=0.01628,0.025663&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe>
+                    </div>
+                    <dl>
+                        <dt class="p4">
+                            91 HUGO ROAD<br />
+                        </dt>
+                        <dd><span>Telephone:</span>0313211890</dd>
+                        <dd><span>FAX:</span>+1 959 552 5963</dd>
+                        <dd><span>E-mail:</span><a href="~/#" class="link">airline@gmail.com</a></dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
